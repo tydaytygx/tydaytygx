@@ -8,15 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Steam_sale | TYGX&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="learner">
+  <meta name="description" content="import requests import urllib import urllib.request import re import os import shutil def createFile(filePath):   if os.path.exists(filePath): # If folder exists ​    shutil.rmtree(‘img’)    else: #">
+<meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Steam_sale">
 <meta property="og:url" content="http://yoursite.com/2020/02/24/Steam-sale/index.html">
 <meta property="og:site_name" content="TYGX&#39;s blog">
+<meta property="og:description" content="import requests import urllib import urllib.request import re import os import shutil def createFile(filePath):   if os.path.exists(filePath): # If folder exists ​    shutil.rmtree(‘img’)    else: #">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-02-24T07:17:47.082Z">
+<meta property="og:updated_time" content="2020-02-24T10:33:39.048Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Steam_sale">
+<meta name="twitter:description" content="import requests import urllib import urllib.request import re import os import shutil def createFile(filePath):   if os.path.exists(filePath): # If folder exists ​    shutil.rmtree(‘img’)    else: #">
   
     <link rel="alternative" href="/atom.xml" title="TYGX&#39;s blog" type="application/atom+xml">
   
@@ -156,7 +159,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Steam-sale" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-Steam-sale" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -176,7 +179,104 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <blockquote>
+<p>import requests</p>
+<p>import urllib</p>
+<p>import urllib.request</p>
+<p>import re</p>
+<p>import os</p>
+<p>import shutil</p>
+<p>def createFile(filePath):</p>
+<p>  if os.path.exists(filePath): <em># If folder exists</em></p>
+<p>​    shutil.rmtree(‘img’) </p>
+<p>  else: <em># File doesn’t exist</em></p>
+<p>​    print(‘No such file:%s’% filePath) </p>
+<p>  if os.path.exists(filePath):</p>
+<p>​    print(‘%s: exists’%filePath)</p>
+<p>  else:</p>
+<p>​    try:</p>
+<p>​      os.mkdir(filePath)</p>
+<p>​      print(‘New folder：%s’%filePath)</p>
+<p>​    except Exception as e:</p>
+<p>​      os.makedirs(filePath)</p>
+<p>​      print(‘New multi-sub-folder：%s’ % filePath)</p>
+<p>def File_Checker(): <em># Check if output files exist or not</em></p>
+<p>  if(os.path.exists(‘steam_sale.html’)):</p>
+<p>​    os.remove(‘steam_sale.html’) <em># Check html file</em></p>
+<p>  elif(os.path.exists(‘steam_saleout.md’)):</p>
+<p>​    os.remove(‘steam_saleout.md’) <em># Check output file</em></p>
+<p>​    </p>
+<p><em># STEAM_SPIDER</em>  </p>
+<p>def Steam_Spider():</p>
+<p>  page = 0 <em># This loop may not suit this site, use when necessary</em></p>
+<p>  while(page &lt; 1):</p>
+<p>​    url = ‘<a href="https://store.steampowered.com/specials#p=&#39;+" target="_blank" rel="noopener">https://store.steampowered.com/specials#p=&#39;+</a> str(page)+ ‘&amp;tab=TopSellers’ <em># Sale page</em></p>
+<p>​    header = {‘user-agent’: ‘Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36’}</p>
+<p>​    r = requests.get(url)</p>
+<p>​    r = requests.get(url, headers=header)</p>
+<p>​    content = r.text</p>
+<p>​    f = open(‘steam_sale.html’,’a’, encoding = ‘UTF-8’, errors = ‘ignore’)</p>
+<p>​    print(r.text, file = f)</p>
+<p>​    f.close()</p>
+<p>​    print(‘Completed with ‘ + r.encoding) <em># Site ‘s HTML encoding</em></p>
+<p>​    page = page + 1</p>
+<p>def getNonRepeatList(data): <em># No-repeat tool</em></p>
+<p>  return [i for n, i in enumerate(data) if i not in data[:n]]</p>
+<p>def Output():</p>
+<p>  discount_img = []</p>
+<p>  discount_name = []</p>
+<p>  discount_original_price= []</p>
+<p>  discount_pct = []</p>
+<p>  discount_final_price =[]</p>
+<p>  with open(‘steam_sale.html’, ‘r’, encoding=’UTF-8’, errors=’ignore’) as f2:</p>
+<p>​    line = f2.readline()  </p>
+<p>​    list1 = []</p>
+<p>​    while line:</p>
+<p>​            </p>
+<p>​      try:    </p>
+<p>​        line = f2.readline()</p>
+<p>​        if ‘tab_item_name’ in line:</p>
+<p>​          print(re.findall(r’&lt;div\sclass=”tab_item_name”&gt;(.+?)‘, line)[0])</p>
+<p>​          discount_name.append(re.findall(r’&lt;div\sclass=”tab_item_name”&gt;(.+?)‘, line)[0])</p>
+<p>​          print(‘—————————————————————–&gt;&gt;&gt;’)</p>
+<p>​        </p>
+<p>​        elif ‘tab_item_cap_img’ in line:</p>
+<p>​          print(re.findall(r’tab_item_cap_img”\ssrc=”(.+?)”\s&gt;’, line)[0]) <em>#img_url</em></p>
+<p>​          discount_img.append(re.findall(r’tab_item_cap_img”\ssrc=”(.+?)”\s&gt;’, line)[0])</p>
+<p>​        elif ‘discount_block tab_item_discount’ in line:</p>
+<p>​          print(‘discount_original_price = ‘ + re.findall(r’&lt;div\sclass=”discount_original_price”&gt;(.+?)‘, line)[0])</p>
+<p>​          print(‘discount_pct = ‘ + re.findall(r’&lt;div\sclass=”discount_pct”&gt;(.+?)‘, line)[0])</p>
+<p>​          print(‘discount_final_price = ‘ + re.findall(r’&lt;div\sclass=”discount_final_price”&gt;(.+?)‘, line)[0])</p>
+<p>​        </p>
+<p>​          </p>
+<p>​          discount_original_price.append(re.findall(r’&lt;div\sclass=”discount_original_price”&gt;(.+?)‘, line)[0])</p>
+<p>​          discount_pct.append(re.findall(r’&lt;div\sclass=”discount_pct”&gt;(.+?)‘, line)[0])</p>
+<p>​          discount_final_price.append(re.findall(r’&lt;div\sclass=”discount_final_price”&gt;(.+?)‘, line)[0])</p>
+<p>​          </p>
+<p>​      except OSError:</p>
+<p>​        pass</p>
+<p>  <em># Output as a file</em></p>
+<p>  with open(‘steam_saleout.html’, ‘w’, encoding = ‘UTF-8’, errors = ‘ignore’) as f3:</p>
+<p>​    print(r’’’</p>
+<p>​    &lt;!DOCTYPE html&gt;</p>
+<html>
+
+  <head><meta name="generator" content="Hexo 3.8.0"><br><br>        <meta charset="utf-8"><br><br>​    <title></title><br><br>        <style type="text/css"><br><br>​<br><br>​      <em>{<br><br>​        transition-duration: 0.5s;<br><br>​        margin: 0;<br><br>​        word-break: break-all;<br><br>​        box-sizing: border-box;<br><br>​        transition-duration: 0.5s;<br><br>​        font-family: “microsoft yahei”;<br><br>​        color: white;<br><br>​      }<br><br>​      body{<br><br>​        background-color: </em>#24292e;<em><br><br>​      }<br><br>​      div:hover{<br><br>​        border: none;<br><br>​        font-size: 20px;<br><br>​        background-color: </em>#5b5b5b;<em><br><br>​        width: 100%;<br><br>​<br><br>​      }<br><br>​<br><br>​      .discount_original_price{<br><br>​        background-color: cornflowerblue;<br><br>​        width: 100%;<br><br>​        background-color: </em>#2894ff;<em><br><br>​        border-radius: 5px 5px 5px 5px;<br><br>​      }<br><br>​<br><br>​      .discount_pct{<br><br>​        background-color: cornflowerblue;<br><br>​        width: 100%;<br><br>​        background-color: </em>#73bf00;<em><br><br>​        border-radius: 5px 5px 5px 5px;<br><br>​      }<br><br>​<br><br>​      .discount_final_price{<br><br>​<br><br>​        background-color: cornflowerblue;<br><br>​        width: 100%;<br><br>​        background-color: </em>#ff8040;<em><br><br>​        border-radius: 5px 5px 5px 5px;<br><br>​<br><br>​      }<br><br>​<br><br>​      .hover_check{<br><br>​        display: block;<br><br>​        background-color: </em>#24292e;*<br><br>​        width: 0%;<br><br>​      }<br><br>​      .hover_check:hover{<br><br>​        background-color: indianred;<br><br>​        width: 100%;<br><br>​      }<br><br>​    </style><br><br>  </head>
+
+  <body>‘’’, file = f3)<br><br>​<br><br>​    for v in range(len(discount_name)):<br><br>​<br><br>​      if ‘/‘ in discount_name[v]:<br><br>​        urllib.request.urlretrieve(discount_img[v], ‘img\%s.jpg’ % discount_name[v].replace(‘/‘, ‘’)) <em># When using urlretrieve, the : makes files can’t be save completely</em><br><br>​        print(r’<div><p class="hover_check hover_check:hover">&lt;img src=”img\%s.jpg” class=”multiimage 3d_show”/ &gt; </p></div><p></p>‘ % discount_name[v].replace(‘/‘, ‘’), file = f3)<br><br>​      elif ‘:’ in discount_name[v]:<br><br>​        urllib.request.urlretrieve(discount_img[v], ‘img\%s.jpg’ % discount_name[v].replace(‘:’, ‘’)) <em># When using urlretrieve, the : makes files can’t be save completely</em><br><br>​        print(r’<div><p class="hover_check hover_check:hover">&lt;img src=”img\%s.jpg” class=”multiimage 3d_show”/ &gt; </p></div><p></p>‘ % discount_name[v].replace(‘:’, ‘’), file = f3)<br><br>​      elif ‘|’ in discount_name[v]:<br><br>​        urllib.request.urlretrieve(discount_img[v], ‘img\%s.jpg’ % discount_name[v].replace(‘|’, ‘’)) <em># When using urlretrieve, the | makes files can’t be save completely</em><br><br>​        print(r’<div><p class="hover_check hover_check:hover">&lt;img src=”img\%s.jpg” class=”multiimage 3d_show”/ &gt; </p></div><p></p>‘ % discount_name[v].replace(‘|’, ‘’), file = f3)<br><br>​<br><br>​      elif ‘?’ in discount_name[v]:<br><br>​        urllib.request.urlretrieve(discount_img[v], ‘img\%s.jpg’ % discount_name[v].replace(‘?’, ‘’)) <em># When using urlretrieve, the | makes files can’t be save completely</em><br><br>​        print(r’<div><p class="hover_check hover_check:hover">&lt;img src=”img\%s.jpg” class=”multiimage 3d_show”/ &gt; </p></div><p></p>‘ % discount_name[v].replace(‘|’, ‘’), file = f3)<br><br>​<br><br>​      elif ‘,’ in discount_name[v]:<br><br>​        urllib.request.urlretrieve(discount_img[v], ‘img\%s.jpg’ % discount_name[v].replace(‘,’, ‘’)) <em># When using urlretrieve, the | makes files can’t be save completely</em><br><br>​        print(r’<div><p class="hover_check hover_check:hover">&lt;img src=”img\%s.jpg” class=”multiimage 3d_show”/ &gt; </p></div><p></p>‘ % discount_name[v].replace(‘|’, ‘’), file = f3)<br><br>​<br><br>​      else:<br><br>​        urllib.request.urlretrieve(discount_img[v], ‘img\%s.jpg’ % discount_name[v])<br><br>​        print(r’<div><p class="hover_check hover_check:hover">&lt;img src=”img\%s.jpg” class=”multiimage 3d_show”/ &gt; </p></div><p></p>‘ % discount_name[v], file = f3)<br><br>​<br><br>​<br><br>​<br><br>​      print(‘# ‘ + discount_name[v], file = f3)<br><br>​      print(r’<b class="discount_original_price">discount_original_price = %s</b>‘ % discount_original_price[v], file = f3) <em># Game’s Discount_before, transformating would be a little bit slower than the others?</em><br><br>​      print(r’<b class="discount_pct">discount_pct = %s</b>‘ % discount_pct[v], file = f3) <em># Game’s Discount</em><br><br>​      print(r’<b class="discount_final_price"> discount_final_price = %s</b>‘ % discount_final_price[v], file = f3) <em># Game’s Discounted</em><br><br>​          <em># print(‘——————-‘, file = f3)</em><br><br>​    print(r’’’<br><br>  </body>
+
+<p></p></html>‘’’, file = f3)<p></p>
+<p>​    </p>
+<p>​          </p>
+<p>​    </p>
+<p>  print(‘done’)      </p>
+<p>if <strong>name</strong> == ‘<strong>main</strong>‘:</p>
+<p>  createFile(os.getcwd() + ‘\img’)</p>
+<p>  File_Checker()</p>
+<p>  Steam_Spider()</p>
+<p>  Output()</p>
+</blockquote>
+
       
 
       
@@ -205,6 +305,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -395,6 +506,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
